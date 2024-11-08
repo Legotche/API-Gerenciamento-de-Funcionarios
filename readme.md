@@ -2,6 +2,21 @@
 
 ## Introdução
 
+1. Para inicializar o projeto, na pasta principal do projeto, crie o arquivo `.env` com as variaveis de ambiente monstradas abaixo, subtituindo as informações pelas de seu banco de dados.
+
+```
+URL_BANCO_DE_DADOS = "mysql://root:dani1234@localhost:3306/testedrizzle"
+SENHA_BANCO_DE_DADOS = "dani1234"
+PORTA_BANCO_DE_DADOS = 3306
+HOSPEDEIRO_BANCO_DE_DADOS = "localhost"
+USUARIO_BANCO_DE_DADOS = "root"
+NOME_BANCO_DE_DADOS = "testedrizzle"
+```
+
+2. Execute `npm i` para instalar as dependencias.
+
+3. Em um terminal execute `npm run App` para iniciar o servidor na porta 3000.
+
 
 ## Regras de Negócio
 
