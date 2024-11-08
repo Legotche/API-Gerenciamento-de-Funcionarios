@@ -19,7 +19,7 @@ export const rotaCriarFuncionario:FastifyPluginAsyncZod = async function(app){
             console.log(`Cadastro do funcionario ${request.body.nome} foi criado`);
 
         }catch(error){
-            //throw new Error("Não foi possível criar o funcionário");
+        throw new Error("Não foi possível criar o funcionário");
         }
     })
     

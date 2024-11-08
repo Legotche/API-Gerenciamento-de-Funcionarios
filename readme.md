@@ -1,4 +1,5 @@
 # Trabalho de POO
+Sistema de Gerenciamento de Funcionarios
 
 ## Introdução
 
@@ -32,15 +33,15 @@ Cria um funcionário e armazena no banco de dados. Recebe no corpo da requisiç�
 {
     "nome":"Pedro",
     "cpf":"188.888.888-78",
-    "dataDeNascimento":"2024-04-06" ,
+    "dataDeNascimento":"2003-04-06" ,
     "telefone": "65999999999",
-    "dataDeContratacao": "2024-04-05" ,
+    "dataDeContratacao": "2022-04-05" ,
     "cargo": {
         "nome": "desenvolvedor",
         "salario": 2000
     },
-    "entradasESaidas": [],
-    "recebimentos": [],
+    "entradasESaidas": ["2024-11-08"],
+    "recebimentos": ["2024-08-09","2024-09-09","2024-10-09"],
     "ativo":true
 }
 ```

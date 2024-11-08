@@ -7,6 +7,11 @@ export const rotaObterFuncionario:FastifyPluginAsyncZod= async (app)=>{
        try{
             const f= await obterFuncionario(request.query.cpf)
             console.log("Funcionario obtido");
+            
+            if(f.length==0){
+                throw new Error("Funcionario nao encontrado");
+            }
+
             return f
             
        } catch(error){

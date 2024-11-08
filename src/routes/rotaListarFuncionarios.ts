@@ -10,6 +10,10 @@ export const rotaListarFuncionarios:FastifyPluginAsyncZod= async(app)=>{
             
             const f= await listarFuncionarios()
             console.log("Funcionarios listados");
+
+            if(f.length==0){
+                throw new Error("Funcionarios nao encontrados");
+            }
             return f
 
         }catch(error){
