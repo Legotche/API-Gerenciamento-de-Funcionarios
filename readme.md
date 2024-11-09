@@ -1,6 +1,12 @@
 # Trabalho de POO
 Sistema de Gerenciamento de Funcionarios
 
+Alunos: 
+Daniel Borges
+Ygor Nunes
+Anthony Deives
+Marcos Medina
+
 ## Introdução
 
 1. Para inicializar o projeto, na pasta principal do projeto, crie o arquivo `.env` com as variaveis de ambiente monstradas abaixo, subtituindo as informações pelas de seu banco de dados.
