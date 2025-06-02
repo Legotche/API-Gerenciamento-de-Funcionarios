@@ -1,0 +1,23 @@
+POST http://localhost:3000/criarFuncionario HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome":"AAAAAAA",
+    "cpf":"188.828.197-79",
+    "dataDeNascimento":"2003-04-06" ,
+    "telefone": "+55 11 91234-5678",
+    "dataDeContratacao": "2022-04-05" ,
+    "cargo": {
+        "nome": "desenvolvedor",
+        "salario": 2000
+    },
+    "entradasESaidas": ["2024-11-08"],
+    "recebimentos": ["2024-08-09","2024-09-09","2024-10-09"]
+}
+
+###
+
+GET http://localhost:3000/obterFuncionario?cpf=188.828.197-79 HTTP/1.1
+Content-Type: application/json
+
+###

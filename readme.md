@@ -20,10 +20,25 @@ USUARIO_BANCO_DE_DADOS = "root"
 NOME_BANCO_DE_DADOS = "testedrizzle"
 ```
 
-2. Execute `npm i` para instalar as dependencias.
+2. Execute 
 
-3. Em um terminal execute `npm run App` para iniciar o servidor na porta 3000.
+```
+npm i
+docker-compose up -d
 
+npx drizzle-kit generate
+npx drizzle-kit migrate
+npx drizzle-kit push
+npx drizzle-kit pull
+npx drizzle-kit check
+npx drizzle-kit up
+
+```
+
+> Caso queira visualizar os dados no banco, pode executar o comando abaixo, para ver em seu navegador:
+```
+npx drizzle-kit studio
+```
 
 ## Regras de Negócio
 

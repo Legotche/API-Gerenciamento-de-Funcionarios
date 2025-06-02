@@ -5,10 +5,6 @@ export class Pessoa{
     private _telefone:string
     
     constructor(nome:string, dataDeNascimento:Date, cpf:string, telefone:string){
-        
-        this.validarTelefone(telefone)
-        this.validarCPF(cpf)
-
         this._nome = nome
         this._dataDeNascimento = dataDeNascimento
         this._cpf = cpf
@@ -45,27 +41,6 @@ export class Pessoa{
     
     set telefone(telefone:string){
         this._telefone = telefone
-    }
-    private validarTelefone(telefone: string) {
-
-        if(telefone.length !== 11){
-            throw new Error('Telefone inválido')
-        };
-    }
-
-    private validarCPF(cpf: string) {
-        const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/; 
-
-       if(!cpfRegex.test(cpf)){
-            throw new Error('CPF inválido')
-        };
-    }
-
-    static validarCPF(cpf: string) {
-        this.validarCPF(cpf)
-    }
-    static validarTelefone(telefone: string) {
-        this.validarTelefone(telefone)
     }
     
 }

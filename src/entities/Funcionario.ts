@@ -74,8 +74,21 @@ export class Funcionario extends Pessoa {
     removerRecebimento(data: Date): void {
         this._recebimentos = this._recebimentos.filter(date => !date.toDateString().includes(data.toDateString()));
     }
-
     
-
-    
+    toJSON() {
+        return {
+            nome: this.nome,
+            dataDeNascimento: this.dataDeNascimento,
+            cpf: this.cpf,
+            telefone: this.telefone,
+            dataDeContratacao: this.dataDeContratacao,
+            cargo: {
+                nome: this.cargo.nome,
+                salario: this.cargo.salario
+            },
+            entradasESaidas: this.entradasESaidas,
+            recebimentos: this.recebimentos,
+            ativo: this.ativo
+        };
+    }
 }
