@@ -42,7 +42,7 @@ app.register(fastifySwaggerUi,
     }
 )
 
-app.after(()=>{
+app.after(() => {
 
     app.register(rotaObterFuncionario)      // /obterFuncionario
     app.register(rotaCriarFuncionario)      // /criarFuncionario
@@ -52,7 +52,7 @@ app.after(()=>{
     app.register(rotaBaterPonto)            // /baterPonto
     app.register(rotaMarcarRecebimento)     // /marcarRecebimento
     app.register(rotaAlterarFuncionario)    // /alterarFuncionario
-    
+
 })
 
 

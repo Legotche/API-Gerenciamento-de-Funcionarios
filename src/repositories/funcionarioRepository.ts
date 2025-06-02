@@ -5,10 +5,10 @@ import { cargo, entradasESaidas, funcionarios, recebimentos } from "../database/
 import { Cargo } from "../entities/Cargo";
 
 export interface IFuncionarioRepository {
-    inserirPagamento(cpf:string, data: Date): Promise<void>;
-    inserirEntradaESaida(cpf:string, data: Date): Promise<void>;
+    inserirPagamento(cpf: string, data: Date): Promise<void>;
+    inserirEntradaESaida(cpf: string, data: Date): Promise<void>;
     alterarFuncionario(funcionario: Funcionario): Promise<void>;
-    deletarFuncionario(cpf:string): Promise<void>;
+    deletarFuncionario(cpf: string): Promise<void>;
     salvarFuncionario(funcionario: Funcionario): Promise<void>;
     buscarFuncionario(cpf?: string): Promise<Funcionario[]>;
 }
@@ -60,7 +60,7 @@ export class FuncionarioRepository implements IFuncionarioRepository {
      * @param data - Data do pagamento.
      * @returns Promise<void> - Retorna uma promessa que resolve quando o pagamento for inserido.
      */
-    public async inserirPagamento(cpf:string, data: Date): Promise<void> {
+    public async inserirPagamento(cpf: string, data: Date): Promise<void> {
         db.insert(recebimentos).values({
             funcionario_cpf: cpf,
             data: data
@@ -73,7 +73,7 @@ export class FuncionarioRepository implements IFuncionarioRepository {
      * @param data - Data da entrada ou saída.
      * @returns Promise<void> - Retorna uma promessa que resolve quando a entrada e saída for inserida.
      */
-    public async inserirEntradaESaida(cpf:string, data: Date): Promise<void> {
+    public async inserirEntradaESaida(cpf: string, data: Date): Promise<void> {
         db.insert(entradasESaidas).values({
             funcionario_cpf: cpf,
             data: data
@@ -127,7 +127,7 @@ export class FuncionarioRepository implements IFuncionarioRepository {
      * @param cpf - CPF do funcionário a ser deletado.
      * @returns Promise<void> - Retorna uma promessa que resolve quando o funcionário for deletado.
      */
-    public async deletarFuncionario(cpf:string): Promise<void> {
+    public async deletarFuncionario(cpf: string): Promise<void> {
 
         db.transaction(async (tx) => {
             tx.delete(entradasESaidas).where(eq(entradasESaidas.funcionario_cpf, cpf));
@@ -136,7 +136,7 @@ export class FuncionarioRepository implements IFuncionarioRepository {
             tx.delete(funcionarios).where(eq(funcionarios.cpf, cpf));
         });
     }
-    
+
     /**
      * Método para salvar um funcionário no banco de dados.
      * @param funcionario - Objeto Funcionario a ser salvo.
@@ -179,23 +179,23 @@ export class FuncionarioRepository implements IFuncionarioRepository {
      * @param cpf - CPF do funcionário a ser buscado.
      * @returns Promise<Funcionario> - Retorna uma promessa que resolve para um objeto Funcionario.
      */
-    public async buscarFuncionario(cpf?:string): Promise<Funcionario[]> {
-        
+    public async buscarFuncionario(cpf?: string): Promise<Funcionario[]> {
 
-        let linhasFuncionario = cpf ? 
-            await db.select().from(funcionarios).where(eq(funcionarios.cpf,cpf)).innerJoin(cargo, eq(cargo.funcionario_cpf, funcionarios.cpf))
+
+        let linhasFuncionario = cpf ?
+            await db.select().from(funcionarios).where(eq(funcionarios.cpf, cpf)).innerJoin(cargo, eq(cargo.funcionario_cpf, funcionarios.cpf))
             :
             await db.select().from(funcionarios).innerJoin(cargo, eq(cargo.funcionario_cpf, funcionarios.cpf))
 
-        
-        if(linhasFuncionario.length === 0 && cpf) {
+
+        if (linhasFuncionario.length === 0 && cpf) {
             return Promise.reject(new Error("Funcionário não encontrado"));
         }
 
         return await Promise.all(linhasFuncionario.map(async (linhaFuncionario: typeof linhasFuncionario[0]) => {
             let linhasEntradasESaidas = await db.select().from(entradasESaidas).where(eq(entradasESaidas.funcionario_cpf, linhaFuncionario.funcionarios.cpf));
             let linhasRecebimentos = await db.select().from(recebimentos).where(eq(recebimentos.funcionario_cpf, linhaFuncionario.funcionarios.cpf));
-            
+
             return new Funcionario(
                 linhaFuncionario.funcionarios.nome,
                 linhaFuncionario.funcionarios.dataDeNascimento,

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const schemaFuncionario=z.object({
+export const schemaFuncionario = z.object({
     nome: z.string(),
     dataDeNascimento: z.date(),
     cpf: z.string().regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/, 'CPF inválido'),

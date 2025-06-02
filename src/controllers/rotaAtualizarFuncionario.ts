@@ -3,8 +3,8 @@ import { alterarFuncionario } from "../services/alterarFuncionario";
 import { schemaAlterarFuncionario } from "../schemas/schemaFuncionario";
 
 
-export const rotaAlterarFuncionario:FastifyPluginAsyncZod= async (app)=>{
-    app.put('/alterarFuncionario',{ schema:{body:schemaAlterarFuncionario} },async (request,reply)=>{
+export const rotaAlterarFuncionario: FastifyPluginAsyncZod = async (app) => {
+    app.put('/alterarFuncionario', { schema: { body: schemaAlterarFuncionario } }, async (request, reply) => {
         try {
             await alterarFuncionario(request.body.cpf, request.body.alvo);
             reply.status(200).send({ message: "Funcionário alterado com sucesso" });

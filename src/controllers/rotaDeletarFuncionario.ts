@@ -7,7 +7,7 @@ import { schemaErro } from "../schemas/schemaFuncionario"
 export const rotaDeletarFuncionario: FastifyPluginAsyncZod = async function (app) {
 
     app.delete('/deletarFuncionario', {
-        schema: { body: schemaCpf, response: {204:z.object({ message: z.string() }), 500: schemaErro} }
+        schema: { body: schemaCpf, response: { 204: z.object({ message: z.string() }), 500: schemaErro } }
     },
         async (request, reply) => {
             try {

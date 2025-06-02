@@ -4,7 +4,7 @@ import { Pessoa } from "./Pessoa";
 
 export class Funcionario extends Pessoa {
     private _dataDeContratacao: Date;
-    private _cargo: Cargo; 
+    private _cargo: Cargo;
     private _entradasESaidas: Date[];
     private _recebimentos: Date[];
     private _ativo: boolean;
@@ -18,7 +18,7 @@ export class Funcionario extends Pessoa {
         this._ativo = ativo;
     }
 
-    
+
     get dataDeContratacao(): Date {
         return this._dataDeContratacao;
     }
@@ -41,7 +41,7 @@ export class Funcionario extends Pessoa {
 
     set entradasESaidas(entradasESaidas: Date[]) {
         this._entradasESaidas = entradasESaidas;
-    }   
+    }
 
     get recebimentos(): Date[] {
         return this._recebimentos;
@@ -58,7 +58,7 @@ export class Funcionario extends Pessoa {
     set ativo(ativo: boolean) {
         this._ativo = ativo;
     }
-    
+
     adicionarEntradaESaida(data: Date): void {
         this._entradasESaidas.push(data);
     }
@@ -74,7 +74,7 @@ export class Funcionario extends Pessoa {
     removerRecebimento(data: Date): void {
         this._recebimentos = this._recebimentos.filter(date => !date.toDateString().includes(data.toDateString()));
     }
-    
+
     toJSON() {
         return {
             nome: this.nome,

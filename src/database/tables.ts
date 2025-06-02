@@ -7,7 +7,7 @@ export const funcionarios = mysqlTable("funcionarios", {
 	cpf: varchar({ length: 255 }).primaryKey().notNull(),
 	telefone: varchar({ length: 225 }).notNull(),
 	dataDeContratacao: date().notNull(),
-	ativo: boolean().notNull(),	
+	ativo: boolean().notNull(),
 })
 
 export const entradasESaidas = mysqlTable("entradas_e_saidas", {
@@ -21,12 +21,12 @@ export const cargo = mysqlTable("cargos", {
 	funcionario_cpf: varchar({ length: 255 }).references(() => funcionarios.cpf).unique().notNull(),
 	nome: varchar({ length: 255 }).notNull(),
 	salario: float().notNull(),
-} )
+})
 
 export const recebimentos = mysqlTable("recebimentos", {
 	id: serial().primaryKey().notNull(),
 	funcionario_cpf: varchar({ length: 255 }).references(() => funcionarios.cpf).notNull(),
-	data:  date().notNull(),
+	data: date().notNull(),
 })
 
 

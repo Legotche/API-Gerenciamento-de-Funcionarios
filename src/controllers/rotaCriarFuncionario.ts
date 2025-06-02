@@ -10,7 +10,7 @@ import { z } from 'zod';
 export const rotaCriarFuncionario: FastifyPluginAsyncZod = async function (app) {
 
     app.post('/criarFuncionario', {
-        schema: { body: schemaFuncionario, response: { 201: z.object({ message: z.string() }),400: schemaErro } }
+        schema: { body: schemaFuncionario, response: { 201: z.object({ message: z.string() }), 400: schemaErro } }
     },
         async (request, response) => {
             try {
