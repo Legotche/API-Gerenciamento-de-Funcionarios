@@ -1,11 +1,11 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "74d9323e-bd65-4075-a8f7-292e8fb16927",
+  "id": "ced24b53-8f4a-43a7-a960-f8db32ad1b5a",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "cargo": {
-      "name": "cargo",
+    "cargos": {
+      "name": "cargos",
       "columns": {
         "id": {
           "name": "id",
@@ -38,9 +38,9 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "cargo_funcionario_cpf_funcionarios_cpf_fk": {
-          "name": "cargo_funcionario_cpf_funcionarios_cpf_fk",
-          "tableFrom": "cargo",
+        "cargos_funcionario_cpf_funcionarios_cpf_fk": {
+          "name": "cargos_funcionario_cpf_funcionarios_cpf_fk",
+          "tableFrom": "cargos",
           "tableTo": "funcionarios",
           "columnsFrom": [
             "funcionario_cpf"
@@ -53,16 +53,16 @@
         }
       },
       "compositePrimaryKeys": {
-        "cargo_id": {
-          "name": "cargo_id",
+        "cargos_id": {
+          "name": "cargos_id",
           "columns": [
             "id"
           ]
         }
       },
       "uniqueConstraints": {
-        "cargo_funcionario_cpf_unique": {
-          "name": "cargo_funcionario_cpf_unique",
+        "cargos_funcionario_cpf_unique": {
+          "name": "cargos_funcionario_cpf_unique",
           "columns": [
             "funcionario_cpf"
           ]
@@ -89,7 +89,7 @@
         },
         "data": {
           "name": "data",
-          "type": "varchar(255)",
+          "type": "date",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -134,7 +134,7 @@
         },
         "dataDeNascimento": {
           "name": "dataDeNascimento",
-          "type": "varchar(30)",
+          "type": "date",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -155,7 +155,7 @@
         },
         "dataDeContratacao": {
           "name": "dataDeContratacao",
-          "type": "varchar(225)",
+          "type": "date",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -200,7 +200,7 @@
         },
         "data": {
           "name": "data",
-          "type": "varchar(255)",
+          "type": "date",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false

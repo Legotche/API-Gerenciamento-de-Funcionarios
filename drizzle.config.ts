@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { defineConfig } from 'drizzle-kit';
 import {} from 'dotenv'
-import { URL_BANCO_DE_DADOS} from './src/schemas/dotenv';
+import { URL_BANCO_DE_DADOS} from './src/Funcionarios/schemas/dotenv';
 
 export default defineConfig({
   out: './drizzle',

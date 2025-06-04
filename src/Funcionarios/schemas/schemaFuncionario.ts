@@ -2,16 +2,16 @@ import { z } from "zod";
 
 export const schemaFuncionario = z.object({
     nome: z.string(),
-    dataDeNascimento: z.date(),
+    dataDeNascimento: z.coerce.date(),
     cpf: z.string().regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/, 'CPF inválido'),
     telefone: z.string().regex(/^\+55 \d{2} \d{4,5}-\d{4}$/, 'Telefone inválido'),
-    dataDeContratacao: z.date(),
+    dataDeContratacao: z.coerce.date(),
     cargo: z.object({
         nome: z.string(),
         salario: z.number()
     }),
-    entradasESaidas: z.array(z.date()),
-    recebimentos: z.array(z.date()),
+    entradasESaidas: z.array(z.coerce.date()),
+    recebimentos: z.array(z.coerce.date()),
     ativo: z.boolean().default(true)
 })
 
